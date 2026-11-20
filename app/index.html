@@ -3,23 +3,73 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GTA VI trophy checklist</title>
+<title>Leonida Trophy Guide — Grand Theft Auto VI</title>
+<meta name="description" content="A guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI, with a road to the platinum, filters and a spoiler setting. Works offline.">
+<link rel="icon" href="data:,">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-  <h1>GTA VI trophy checklist</h1>
-  <p id="progress">0 of 55 earned</p>
+<header class="hero">
+  <p class="eyebrow">Grand Theft Auto VI &middot; PlayStation 5</p>
+  <h1>Leonida Trophy Guide</h1>
+  <p class="tagline">All 55 trophies, a road to the platinum, and a tracker that remembers where you are. No online trophies, one playthrough, about 200 hours.</p>
+  <div class="progress-wrap" aria-label="Trophy progress">
+    <div class="progress-bar"><div id="progress-fill" class="progress-fill"></div></div>
+    <p id="progress-text" class="progress-text">0 of 55 earned</p>
+  </div>
+  <div class="grade-counts" id="grade-counts"></div>
 </header>
-<div class="controls">
-  <label>Grade <select id="grade"><option value="all">All</option><option value="platinum">Platinum</option><option value="gold">Gold</option><option value="silver">Silver</option><option value="bronze">Bronze</option></select></label>
-  <button id="export" type="button">Export progress</button>
-  <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
-</div>
-<table>
-  <thead><tr><th>Earned</th><th>Trophy</th><th>Grade</th><th>How to get it</th></tr></thead>
-  <tbody id="rows"></tbody>
-</table>
+
+<main>
+  <section class="roadmap" aria-labelledby="roadmap-title">
+    <h2 id="roadmap-title">Road to the Platinum</h2>
+    <p class="section-note">The order to earn them in, built from the official descriptions. One trophy can be missed — it is flagged in phase 2.</p>
+    <ol id="roadmap-list" class="roadmap-list"></ol>
+  </section>
+
+  <section class="tracker" aria-labelledby="tracker-title">
+    <h2 id="tracker-title">Trophy tracker</h2>
+    <div class="controls">
+      <input id="search" type="search" placeholder="Search trophies…" aria-label="Search trophies">
+      <div class="filters" role="group" aria-label="Filter trophies">
+        <button type="button" class="chip active" data-filter="all">All</button>
+        <button type="button" class="chip" data-filter="story">Story</button>
+        <button type="button" class="chip" data-filter="missable">Missable</button>
+        <button type="button" class="chip" data-filter="collectibles">Collectibles</button>
+        <button type="button" class="chip" data-filter="activities">Activities</button>
+        <button type="button" class="chip" data-filter="online">Online</button>
+      </div>
+      <label class="grade-label">Grade
+        <select id="grade">
+          <option value="all">All grades</option>
+          <option value="platinum">Platinum</option>
+          <option value="gold">Gold</option>
+          <option value="silver">Silver</option>
+          <option value="bronze">Bronze</option>
+        </select>
+      </label>
+      <label class="spoiler-label"><input id="spoilers" type="checkbox" checked> Hide story spoilers</label>
+      <button id="export" type="button">Export progress</button>
+      <label class="import">Import progress <input id="import" type="file" accept="application/json"></label>
+      <button id="reset" type="button" class="danger">Reset</button>
+    </div>
+    <p id="empty" class="empty" hidden></p>
+    <ul id="trophy-list" class="trophy-list"></ul>
+  </section>
+
+  <section class="sources" aria-labelledby="sources-title">
+    <h2 id="sources-title">Sources &amp; notes</h2>
+    <p>Trophy names, descriptions and grades are the official PlayStation trophy list. Every guide cites the source its method comes from; where a method is still unconfirmed, the guide says so instead of guessing. The game was not out when these guides were written, so methods reflect what the trophy-hunting guides had confirmed by 18–20 November 2026.</p>
+    <ul>
+      <li>EGamers — GTA 6 Trophy List: All 55 Trophies And Achievements, Plus The Hardest Ones (<a href="https://egamers.io/gta-6-trophy-list-all-55-trophies-and-achievements-plus-the-hardest-ones/">egamers.io</a>)</li>
+      <li>Push Square — GTA 6 Trophy Guide &amp; Roadmap (<a href="https://www.pushsquare.com/guides/gta-6-trophy-guide-and-roadmap">pushsquare.com</a>)</li>
+      <li>KeenGamer — GTA 6 Trophy Guide &amp; Platinum Roadmap (<a href="https://www.keengamer.com/articles/guides/gta-6-trophy-guide-platinum-roadmap-all-55-trophies/">keengamer.com</a>)</li>
+      <li>PowerPyx, GTABase and TechWiser, as reported by EGamers — methods for stunts, bank vaults, meditation, the Criminal Profile and the 100% checklist.</li>
+    </ul>
+    <p class="fineprint">An unofficial fan guide. Not affiliated with Rockstar Games, Sony or PlayStation. No Rockstar artwork, logos, characters or fonts are used here.</p>
+  </section>
+</main>
+
 <script type="module" src="app.js"></script>
 </body>
 </html>
